@@ -412,3 +412,45 @@ body{
   bottom: 5%;
   background-color: transparent;
 }
+.textarea {
+
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(255, 255, 255,0.5); /* Use #ffffff for white color */
+  text-align: left;
+  outline: none;
+  text-indent: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50%;
+}
+#HEADELE{
+  margin-bottom: 30px;
+}
+#submi{
+  margin-top: 3em;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left:15px ;
+  padding-right:15px ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: white;
+  color: black;
+}
+#submi:hover{
+  background-color: black;
+  color: #fff;
+  box-shadow: 2px 2px 5px black;
+}
+#submi:active{
+  box-shadow: none;
+  transition: 0.1s;
+}
