@@ -476,3 +476,79 @@ marquee{
   margin: 10px;
   border-radius: 50%;
 }
+
+.complaint-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.complaint-box p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.complaint-user-box {
+  margin-bottom: 15px;
+}
+
+.complaint-user-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.complaint-user-box select,
+.complaint-user-box textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.complaint-user-box select {
+  margin-bottom: 10px;
+}
+
+.complaint-user-box textarea {
+  height: 100px;
+}
+
+#complaint-textbox input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#complaint-textbox input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.user-complaints {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-complaints h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.user-complaints ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-complaints ul li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}

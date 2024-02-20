@@ -38,8 +38,8 @@ def sign_up():
         email = request.form.get('email')
         password = request.form.get('password')
         role = request.form.get('role')
+        region = request.form.get('talukSelect')
 
-        # Check if the user already exists
         if Citizen.query.filter_by(email=email).first() or Employee.query.filter_by(email=email).first():
             flash('User already exists!', category='error')
         elif len(email) < 4:
@@ -50,12 +50,12 @@ def sign_up():
             flash('Password must be at least 7 characters.', 'error')
         else:
             if role == 'citizen':
-                new_user = Citizen(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                new_user = Citizen(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'),region=region)
                 db.session.add(new_user)
                 CUSER=Citizen.query.filter_by(email=email).first()
                 login_user(CUSER,remember=True)
             elif role == 'employee':
-                new_user = Employee(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                new_user = Employee(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'),region=region)
                 db.session.add(new_user)
                 EUSER=Employee.query.filter_by(email=email).first()
                 login_user(EUSER,remember=True)
