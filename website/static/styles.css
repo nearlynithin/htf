@@ -3,9 +3,11 @@
     margin: 0;
 }
 body{
-    background:url(gettyimages-1209030907-612x612.jpg) ;
+    background:url(bOqfQC.jpg) ;
     background-attachment: fixed;
-    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
 }
 .nav-bar{
     width:100%;
@@ -453,4 +455,24 @@ body{
 #submi:active{
   box-shadow: none;
   transition: 0.1s;
+}
+marquee{
+  font-size: 30px;
+  color: red;
+}
+.box-3:active {
+  width: 240px;
+  height: 240px;
+  background-color: #ccc;
+  border: 1px solid #000;
+  margin: 10px;
+  border-radius: 50%;
+}
+.box-4:active {
+  width: 240px;
+  height: 240px;
+  background-color: #ccc;
+  border: 1px solid #000;
+  margin: 10px;
+  border-radius: 50%;
 }

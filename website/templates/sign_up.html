@@ -24,7 +24,49 @@
           <option class="option" value="employee">Employee</option>
         </select>
       </div>
+      <select id="stateSelect" onchange="showDistrict()">
+        <option value="">Select State</option>
+        <option value="karnataka">Karnataka</option>
+      </select>
+      
+      <select id="districtSelect" style="display: none;" onchange="showTaluk()">
+        <option value="">Select District</option>
+        <option value="dakshina_kannada">Dakshina Kannada</option>
+      </select>
+      
+      <select id="talukSelect" style="display: none;">
+        <option value="">Select Taluk</option>
+        <option value="mangalore">Mangalore</option>
+        <option value="udupi">Udupi</option>
+        <option value="bantwal">Bantwal</option>
+        <!-- Add more taluks here -->
+      </select>
+      
       <input type="submit" value="Sign Up" id="submitbtn" >
     </form>
   </div>
+  <script>
+    function showDistrict() {
+      var stateSelect = document.getElementById("stateSelect");
+      var districtSelect = document.getElementById("districtSelect");
+    
+      if (stateSelect.value === "karnataka") {
+        districtSelect.style.display = "block";
+      } else {
+        districtSelect.style.display = "none";
+      }
+    }
+    
+    function showTaluk() {
+      var districtSelect = document.getElementById("districtSelect");
+      var talukSelect = document.getElementById("talukSelect");
+    
+      if (districtSelect.value === "dakshina_kannada") {
+        talukSelect.style.display = "block";
+      } else {
+        talukSelect.style.display = "none";
+      }
+    }
+    </script>
+    
 {% endblock %}
