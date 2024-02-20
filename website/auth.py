@@ -52,15 +52,17 @@ def sign_up():
             if role == 'citizen':
                 new_citizen = Citizen(firstname=firstname, email=email, password = generate_password_hash(password,method='pbkdf2:sha256'))
                 db.session.add(new_citizen)
+                CUSER=Citizen.query.filter_by(email=email).first()
+                login_user(CUSER,remember=True)
                 flash('Account successfully created', 'success')
             elif role == 'employee':
                 new_employee = Employee(firstname=firstname,email=email,password=generate_password_hash(password, method='pbkdf2:sha256'))
                 db.session.add(new_employee)
+                EUSER=Employee.query.filter_by(email=email).first()
+                login_user(EUSER,remember=True)
                 flash('Account successfully created', 'success')
             
             db.session.commit()
-            USER=Citizen.query.filter_by(email=email).first()
-            login_user(USER, remember=True)
         return redirect(url_for('views.home'))
     return render_template('sign_up.html')
 
