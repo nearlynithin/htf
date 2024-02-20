@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <div>
     <h2>Talk to --Insert Name Here--</h2>
-    <div class="message-box" id="messages"></div>
+    <h3>Code: {{ code }}</h3>
+    <div class="messages" id="messages"></div>
     <div class="inputs">
-        <input type="text" rows="3" placeholder="message" name="message" id="message"/>
-        <button type="button" name="send" onClick="sendMessage()">
+        <input type="text" rows="3" placeholder="message" name="message" id = "message"/>
+        <button type="button" name="send" id="message" onClick="sendMessage()">
             Send
         </button>
     </div>
@@ -30,7 +31,7 @@
   }; 
 
   socketio.on("message", (data) => {
-    createMessage(data.name, data.message);
+    createMessage(data.message);
   });
 
   const sendMessage = () => {

@@ -30,7 +30,7 @@ def chat():
 
     session["room"] = room
     
-    return render_template("chat.html")
+    return render_template("chat.html", code=room)
 
 @sio.on("connect")
 def connect(auth):
