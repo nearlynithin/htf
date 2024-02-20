@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Complaint Form{% endblock %}
+
+{% block content %}
+<div class="complaint-box">
+    <p>Submit a Complaint</p>
+    <form method="POST">
+      <div class="complaint-user-box">
+        <textarea id="complaint_text" name="complaint_text" rows="4" cols="50" required></textarea>
+        <label for="complaint_text">Complaint Text:</label>
+      </div>
+      <input type="submit" value="Submit Complaint" id="submitbtn-2">
+    </form>
+</div>
+{% endblock %}

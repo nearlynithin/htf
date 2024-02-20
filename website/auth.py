@@ -38,9 +38,9 @@ def sign_up():
         email = request.form.get('email')
         password = request.form.get('password')
         role = request.form.get('role')
-        
-        user = Citizen.query.filter_by(email=email).first()
-        if user:
+
+        # Check if the user already exists
+        if Citizen.query.filter_by(email=email).first() or Employee.query.filter_by(email=email).first():
             flash('User already exists!', category='error')
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.', 'error')
@@ -50,18 +50,24 @@ def sign_up():
             flash('Password must be at least 7 characters.', 'error')
         else:
             if role == 'citizen':
-                new_citizen = Citizen(firstname=firstname, email=email, password = generate_password_hash(password,method='pbkdf2:sha256'))
-                db.session.add(new_citizen)
-                flash('Account successfully created', 'success')
+                new_user = Citizen(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                db.session.add(new_user)
+                CUSER=Citizen.query.filter_by(email=email).first()
+                login_user(CUSER,remember=True)
             elif role == 'employee':
-                new_employee = Employee(firstname=firstname,email=email,password=generate_password_hash(password, method='pbkdf2:sha256'))
-                db.session.add(new_employee)
-                flash('Account successfully created', 'success')
-            
+                new_user = Employee(firstname=firstname, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                db.session.add(new_user)
+                EUSER=Employee.query.filter_by(email=email).first()
+                login_user(EUSER,remember=True)
+            else:
+                flash('Invalid role!', category='error')
+                return redirect(url_for('auth.sign_up'))
+
             db.session.commit()
-            USER=Citizen.query.filter_by(email=email).first()
-            login_user(USER, remember=True)
-        return redirect(url_for('views.home'))
+            flash('Account successfully created', 'success')
+
+            return redirect(url_for('views.home'))
+
     return render_template('sign_up.html')
 
 
