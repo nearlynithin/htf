@@ -6,7 +6,6 @@ from flask_login import UserMixin
 class Citizen(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(50), nullable=False)
-    lastname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     complaints = db.relationship('Complaint', backref='citizen', lazy=True)
@@ -14,7 +13,6 @@ class Citizen(db.Model,UserMixin):
 class Employee(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(50), nullable=False)
-    lastname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     assigned_complaints = db.relationship('Complaint', backref='employee', lazy=True)
