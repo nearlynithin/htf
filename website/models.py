@@ -1,8 +1,9 @@
 from flask import Flask
 from datetime import datetime
 from . import db
+from flask_login import UserMixin
 
-class Citizen(db.Model):
+class Citizen(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(50), nullable=False)
     lastname = db.Column(db.String(50), nullable=False)
@@ -10,7 +11,7 @@ class Citizen(db.Model):
     password = db.Column(db.String(60), nullable=False)
     complaints = db.relationship('Complaint', backref='citizen', lazy=True)
 
-class Employee(db.Model):
+class Employee(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(50), nullable=False)
     lastname = db.Column(db.String(50), nullable=False)
