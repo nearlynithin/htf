@@ -1,3 +1,62 @@
-body{
-  background:url(bOqfC.jpg);
+body {
+  background: url(bOqfQC.jpg);
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+#message {
+  width: calc(100% - 70px); /* Adjust width as needed */
+  padding: 10px;
+  font-size: larger;
+  background-color: rgb(255, 255, 255,0.7); 
+}
+
+.inputs {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}
+
+#messagess {
+  margin-left: 10px;
+ }
+.hello-3 {
+  border: none;
+  outline: none; 
+  background-color:transparent ;
+}
+.mssg{
+  font-size: 30px;
+}
+.container {
+  position: relative;
+}
+
+.text {
+  position: relative; /* Make sure to position .text relative so that .muted is positioned relative to it */
+}
+
+.muted {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.text{
+  border: 3px solid black;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255,0.7); 
+  border-radius:100px;
+}
+.code{
+  color: white;
+  font-size: 30px;
+  margin-left: 10px;
+}
+.talk{
+  color:white;
+  font-size:40px;
 }

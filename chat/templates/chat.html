@@ -1,13 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <div>
-    <h2>Talk to --Insert Name Here--</h2>
-    <h3>Code: {{ code }}</h3>
+    <h2 class="talk">Talk to --Insert Name Here--</h2>
+    <h3 class="code">Code: {{ code }}</h3>
     <div class="messages" id="messages"></div>
     <div class="inputs">
         <input type="text" rows="3" placeholder="message" name="message" id = "message"/>
-        <button type="button" name="send" id="message" onClick="sendMessage()">
-            Send
+        <button type="button" name="send"class="hello-3" id="messagess" onClick="sendMessage()">
+          <iconify-icon icon="codicon:send" width="50" height="50" id="icon-1" style="color: white"></iconify-icon>
         </button>
+        
     </div>
 </div>
 
@@ -18,14 +19,16 @@
 
     const createMessage = (msg) => {
     const content = `
-    <div class="text">
-        <span>
-            ${msg}
-        </span>
-        <span class="muted">
-            ${new Date().toLocaleString()}
-        </span>
-    </div>
+    <div class="container">
+      <div class="text">
+          <span class="mssg">
+              ${msg}
+          </span>
+          <span class="muted">
+              ${new Date().toLocaleString()}
+          </span>
+      </div>
+  </div>
     `;
     messages.innerHTML += content;
   }; 
@@ -42,6 +45,7 @@
   };
 
 </script>
+
 
 {% for msg in messages %}
 <script type="text/javascript">
