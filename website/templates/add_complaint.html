@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Complaint Form{% endblock %}
+
+{% block content %}
+<div class="complaint-box">
+    <p>Submit a Complaint</p>
+    <form method="POST">
+      <div class="complaint-user-box">
+        <label for="complaint_type">Select Complaint Type:</label>
+        <select id="complaint_type" name="complaint_type" required>
+          <option value="" disabled selected>Select Complaint Type</option>
+          <option value="electricity">Electricity</option>
+          <option value="water">Water</option>
+        </select>
+      </div>
+      <div id="complaint-textbox" style="display: none;">
+        <div class="complaint-user-box">
+          <textarea id="complaint_text" name="complaint_text" rows="4" cols="50" required></textarea>
+          <label for="complaint_text">Complaint Text:</label>
+        </div>
+        <input type="submit" value="Submit Complaint" id="submitbtn-2">
+      </div>
+    </form>
+</div>
+
+<div class="user-complaints">
+    <h2>Your Complaints</h2>
+    <ul>
+        {% for complaint in user_complaints %}
+            <li>{{ complaint.complaint_text }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+  document.getElementById('complaint_type').addEventListener('change', function() {
+    var complaintType = this.value;
+    if (complaintType !== '') {
+      document.getElementById('complaint-textbox').style.display = 'block';
+    } else {
+      document.getElementById('complaint-textbox').style.display = 'none';
+    }
+  });
+</script>
+{% endblock %}
