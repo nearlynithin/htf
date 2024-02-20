@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The home{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="nav-bar">
+              <div class="head-1"><h1>CITYZEN </h1></div>
+              <div class="nav-2">
+                  <a href="/home">HOME</a>
+                  <a href="/sign-up">SIGN UP</a>
+                  <a href="/login">LOGIN</a>
+                  <a href="/logout">LOGOUT</a>
+              </div>
+          </div>
+        </nav>
+      </header>
+      <nav>
+        <div>
+          <label  for="list"><iconify-icon onclick=showsidebar() icon="ph:list-bold" width="30" height="30" class="list-1"></iconify-icon></label>
+          <div class="sidebar">
+            <div class="link-3"> <label for="list"> <iconify-icon id="icon-2" onclick=cancelsidebar() class="list-2" icon="gridicons:cross" width="30" height="30"  style="color: white"></iconify-icon></label><a class="link-2" href="/home" id="hello">HOME</a>
+            <a class="link-2" href="/sign-up">SIGN UP</a>
+            <a class="link-2" href="/login">LOGIN</a>
+            <a class="link-2" href="/logout">LOGOUT</a></div>
+          </div>
+     </div>
+      </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="flash-message {% if category == 'error' %}flash-error{% else %}flash-success{% endif %}">
+        {{ message }}
+        <span class="dismiss-btn" onclick="this.parentNode.style.display = 'none';">&times;</span>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+    <script>
+        function showsidebar(){
+          const sidebar=document.querySelector('.sidebar')
+          sidebar.style.display='flex'
+        }
+      </script>
+      <script>
+        function cancelsidebar(){
+          const sidebar=document.querySelector('.sidebar')
+          sidebar.style.display='none'
+        }
+      </script>
+</body>
+</html>
