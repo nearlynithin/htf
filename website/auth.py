@@ -1,8 +1,9 @@
-from flask import Blueprint,render_template,redirect,request,url_for,flash
-from flask_login import login_user, logout_user, login_required
+from flask import Blueprint,render_template,request,flash,redirect,url_for
+from .models import Citizen, Employee
 from werkzeug.security import generate_password_hash, check_password_hash
-from .import db
-from .models import Citizen,Employee
+from . import db
+from flask_login import login_user, logout_user, login_required
+
 
 auth = Blueprint('auth',__name__)
 
@@ -12,32 +13,32 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-
-@auth.route('/login', methods=['GET','POST'])
+@auth.route('/login',methods=['GET','POST'])
 def login():
     if request.method=='POST':
         email = request.form.get('email')
-        password= request.form.get('password')
+        password = request.form.get('password')
 
-        user=Citizen.query.filter_by(email==email).first()
+        user = Citizen.query.filter_by(email=email).first()
         if user:
-                if check_password_hash(user.password, password):
-                    flash('Logged in successfully!', category='success')
-                    login_user(user, remember=True)
-                    return redirect(url_for('views.home'))
-                else:
-                    flash('incorrect password, try again!', category='error')
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('views.home'))
+            else:
+                flash('incorrect password, try again!', category='error')
         else:
             flash('User does not exist!', category='error')
     return render_template('login.html')
 
-@auth.route('/sign-up',methods=('GET','POST'))
+@auth.route('/sign-up', methods=['GET','POST'])
 def sign_up():
     if request.method == 'POST':
         firstname = request.form.get('name')
-        email= request.form.get('email')
-        password= request.form.get('password')
+        email = request.form.get('email')
+        password = request.form.get('password')
         role = request.form.get('role')
+        
         user = Citizen.query.filter_by(email=email).first()
         if user:
             flash('User already exists!', category='error')
@@ -61,4 +62,6 @@ def sign_up():
             USER=Citizen.query.filter_by(email=email).first()
             login_user(USER, remember=True)
         return redirect(url_for('views.home'))
-    return render_template('signup.html')
+    return render_template('sign_up.html')
+
+
