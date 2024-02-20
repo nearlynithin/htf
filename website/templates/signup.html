@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="login-box">
+    <p>SIGN UP</p>
+    <form method="POST">
+      <div class="user-box">
+        <input required="" name="name" type="text">
+        <label>Name</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="email" type="text">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="password" type="password">
+        <label>Password</label>
+      </div>
+      <div>
+        <select id="role" name="role">
+          <option class="option" value="citizen">Citizen</option>
+          <option class="option" value="employee">Employee</option>
+        </select>
+      </div>
+      <input type="submit" value="Sign Up" id="submitbtn" >
+    </form>
+  </div>
+{% endblock %}

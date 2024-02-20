@@ -1,0 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background:url(gettyimages-1209030907-612x612.jpg) ;
+    background-attachment: fixed;
+    background-size: cover;
+}
