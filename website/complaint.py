@@ -27,3 +27,18 @@ def add_complaint():
         user_complaints = Complaint.query.filter_by(citizen_id=current_user.id).all() 
     
     return render_template('add_complaint.html', user_complaints=user_complaints)
+
+@complaint.route('/accept_complaint/<int:complaint_id>')
+def accept_complaint(complaint_id):
+    if current_user.is_authenticated and isinstance(current_user, Employee):
+        complaint = Complaint.query.get(complaint_id)
+        if complaint:
+            complaint.employee_id = current_user.id
+            db.session.commit()
+            flash('Complaint accepted successfully!', 'success')
+        else:
+            flash('Complaint not found!', 'error')
+    else:
+        flash('You are not authorized to accept complaints!', 'error')
+
+    return redirect(url_for('complaint.add_complaint'))
