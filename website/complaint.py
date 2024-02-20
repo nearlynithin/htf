@@ -8,6 +8,7 @@ complaint = Blueprint('complaint',__name__)
 
 
 @complaint.route('/complaint', methods=['GET','POST'])
+@login_required
 def add_complaint():
     if request.method == 'POST':
         complaint_text = request.form.get('complaint_text')
