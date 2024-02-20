@@ -476,3 +476,27 @@ marquee{
   margin: 10px;
   border-radius: 50%;
 }
+#stateSelect{
+  background-color: transparent;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  font-size: large;
+  border-radius: 10px;
+}
+#districtSelect{
+  background-color: transparent;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  font-size: large;
+  border-radius: 10px;
+}
+#talukSelect{
+  background-color: transparent;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  font-size: large;
+  border-radius: 10px;
+}
