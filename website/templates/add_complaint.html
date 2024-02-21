@@ -27,14 +27,16 @@
 <div class="user-complaints">
     <h2>Your Complaints</h2>
     <ul>
-        {% for complaint in user_complaints %}
-            <li>
-                {{ complaint.complaint_text }}
-                {% if current_user.is_authenticated and isinstance(current_user, Employee) %}
-                    <a href="{{ url_for('complaint.accept_complaint', complaint_id=complaint.id) }}">Accept Complaint</a>
-                {% endif %}
-            </li>
-        {% endfor %}
+        {% if user_complaints %}
+            {% for complaint in user_complaints %}
+                <li>
+                    {{ complaint.complaint_text }}
+                        <a href="{{ url_for('complaint.accept_complaint', complaint_id=complaint.id) }}">Accept Complaint</a>   
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No complaints found.</li>
+        {% endif %}
     </ul>
 </div>
 
