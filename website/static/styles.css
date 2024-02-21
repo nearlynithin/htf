@@ -629,3 +629,14 @@ marquee{
 #heading-3{
   color:white;
 }
+li{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 5px;
+  list-style-type: none;
+}
+#signs{
+  width:100%;
+  background-color: #cc0000;
+  color: white;
+}
