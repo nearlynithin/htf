@@ -2,11 +2,9 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from flask_socketio import SocketIO, join_room, leave_room, send
 import random
 from string import ascii_uppercase
-
 '''have to add client data'''
 
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "ThisIsForTheRuntimeERROR"
+
 sio = SocketIO(app)
 
 rooms = {}
@@ -16,7 +14,7 @@ def generate_unique_code(length):
         code = ""
         for _ in range(length):
             code += random.choice(ascii_uppercase)
-        
+            
         if code not in rooms:
             break
     
