@@ -393,6 +393,8 @@ body{
   border: 1px solid #000;
   margin: 10px;
   border-radius: 50%;
+  background: url(WhatsApp\ Image\ 2024-02-21\ at\ 7.25.14\ AM\(1\).jpeg);
+  background-size: cover;
 }
 .box-4 {
   width: 250px;
@@ -401,6 +403,8 @@ body{
   border: 1px solid #000;
   margin: 10px;
   border-radius: 50%;
+  background: url(WhatsApp\ Image\ 2024-02-21\ at\ 7.25.24\ AM.jpeg);
+  background-size:cover;
 }
 .btn {
   background-color: transparent;
@@ -499,4 +503,129 @@ marquee{
   padding-bottom: 10px;
   font-size: large;
   border-radius: 10px;
+}
+#complaint_type{
+  background-color: white;
+  color:#000;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  font-size: large;
+  border-radius: 10px;
+}
+.name{
+  color: white;
+}
+#su{
+  font-size: larger;
+  color:white;
+}
+#selett{
+  color:white;
+}
+#headcom{
+  color:white;
+  margin-top: 10px;
+}
+#go{
+  color:black;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+#complaint_text{
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(255, 255, 255,0.5); /* Use #ffffff for white color */
+  text-align: left;
+  outline: none;
+  text-indent: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50%;
+}
+#submitbtn-2{
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left:15px ;
+  padding-right:15px ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: white;
+  color: black;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+#submitbtn-2:hover{
+  background-color: black;
+  color: #fff;
+  box-shadow: 2px 2px 5px black;
+}
+#submitbtn-2:active{
+  box-shadow: none;
+  transition: 0.1s;
+}
+#pr{
+  background-color:rgb(255, 255,255,0.7);
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 50px;
+  padding-left: 5px;
+}
+.alert-3{
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left:10px ;
+  padding-right:10px ;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  color: black;
+
+}
+.alert-3:hover{
+  background-color: black;
+  color: #fff;
+  box-shadow: 2px 2px 5px black;
+}
+.alert-3:active{
+  box-shadow: none;
+}
+.hello-4 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textarea-1{
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(255, 255, 255,0.9); /* Use #ffffff for white color */
+  text-align: left;
+  outline: none;
+  text-indent: 10px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+#heading-3{
+  color:white;
 }

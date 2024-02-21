@@ -4,19 +4,20 @@
 
 {% block content %}
 <div class="container">
-    <div class="box-1">
-      <marquee width="100%" direction="right" height="100px" scrollamount="15"> ALERTS!!!</marquee>
-    </div>
-    <div class="box-2">    <iconify-icon id="icon-user-1" icon="healthicons:ui-user-profile" style="color: white;" width="250" height="250">
-
-    </iconify-icon>
-    <h1 class="name">NAME</h1>
-</div>
+  <div class="box-1">
+    <marquee width="100%" direction="right" height="30px" scrollamount="15"> ALERTS!!!</marquee>
+   <div class="hello-4"> <textarea class="textarea-1"></textarea>
+   <button class="alert-3">CREATE ALERT</BUTTON></div>
   </div>
- <h1 id="heading-3">COMPLAIN REGISTRATTION</h1>
- <div class="container-1">
+  <div class="box-2">    <iconify-icon id="icon-user-1" icon="healthicons:ui-user-profile" style="color: white;" width="250" height="250">
+
+  </iconify-icon>
+  <h1 class="name">{{ user_name }}</h1>
+</div>
+</div>
+<h1 id="heading-3">COMPLAIN REGISTRATTION</h1>
+<div class="container-1">
 <button type="submit" class="btn"> <div class="box-3"></div></button>
 <button type="submit" class="btn"> <div class="box-4"></div></button>
-  </div>
-  
+</div>
 {% endblock %}

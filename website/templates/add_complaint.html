@@ -4,10 +4,10 @@
 
 {% block content %}
 <div class="complaint-box">
-    <p>Submit a Complaint</p>
+    <p id="su">Submit a Complaint</p>
     <form method="POST">
       <div class="complaint-user-box">
-        <label for="complaint_type">Select Complaint Type:</label>
+        <label id="selett"for="complaint_type">Select Complaint Type:</label>
         <select id="complaint_type" name="complaint_type" required>
           <option value="" disabled selected>Select Complaint Type</option>
           <option value="electricity">Electricity</option>
@@ -25,16 +25,18 @@
 </div>
 
 <div class="user-complaints">
-    <h2>Your Complaints</h2>
-    <ul>
-        {% for complaint in user_complaints %}
-            <li>
-                {{ complaint.complaint_text }}
-                {% if current_user.is_authenticated and isinstance(current_user, Employee) %}
-                    <a href="{{ url_for('complaint.accept_complaint', complaint_id=complaint.id) }}">Accept Complaint</a>
-                {% endif %}
-            </li>
-        {% endfor %}
+    <h2 id="headcom">Your Complaints</h2>
+    <ul id="go">
+        {% if user_complaints %}
+            {% for complaint in user_complaints %}
+                <li id="pr">
+                    {{ complaint.complaint_text }}
+                        <a id="ss" href="{{ url_for('complaint.accept_complaint', complaint_id=complaint.id) }}">Accept Complaint</a>   
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No complaints found.</li>
+        {% endif %}
     </ul>
 </div>
 
